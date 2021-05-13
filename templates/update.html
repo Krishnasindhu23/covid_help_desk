@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modify Database</title>
+    <script>
+        function updateVal(val){
+        var r=window.confirm("Do you want to update?");
+
+        }
+    </script>
+</head>
+
+<body>
+<h1><center>{{value[0][0]}}</center></h1>
+  <table>
+{% for row in value %}
+      <tr>
+          <th>Ventilator Bed</th>
+          <th>Oxygen Bed</th>
+          <th>Normal Bed</th>
+      </tr>
+      <form>
+            <tr>
+                <td><button  name="b1" onclick="updateVal(this.value)">{{row[1]}}</button></td>
+                <td><button name="b2" onclick="updateVal()"> {{row[2]}}</button></td>
+                <td><button name="b3" onclick="updateVal()">{{row[3]}}</button></td>
+            </tr>
+          <div id="btn">HIII </div>
+          </form>
+        {% endfor %}
+  </table>
+</body>
+</html>
