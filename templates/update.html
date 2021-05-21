@@ -3,32 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <title>Modify Database</title>
-    <script>
-        function updateVal(val){
-        var r=window.confirm("Do you want to update?");
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+        th{
+        font-size:25px;
+        text-align:center;
         }
-    </script>
+        td{
+        font-size:25px;
+        text-align:center;
+        }
+        button{
+        width:60%;
+        }
+        label{
+        font-size:23px;
+        color:black;
+        }
+    </style>
 </head>
 
 <body>
-<h1><center>{{value[0][0]}}</center></h1>
-  <table>
-{% for row in value %}
+  <script>
+    function updateVal(){
+     var r = confirm("Do you want to update?");
+      if(r==true){
+        var d = "<div class='container' <h1>Fill the details</h1> <form method='POST' action='{{url_for('update')}}' class='form-group'><label>Ventilator bed:</label> <input type='number' class='form-control' name='v'><br><label>Oxygen bed:</label><input class='form-control' type='number' name='o'><br><label>Normal Bed:</label> <input class='form-control' type='number' name='n'><br><button class='btn btn-primary' style='width:30% ;color:black;background:#00CED1;font-size:22px;' type='submit'>Submit</button></form></div>"
+        document.getElementById('btn').innerHTML = d;
+      }
+
+    }
+</script>
+  <div class="jumbotron" style="background-color: #00CED1;font-family:georgia"><h1><center>{{value[0][0]}}</center></h1></div>
+<div class="container">
+  <table class="table table-dark" >
+<thead>
       <tr>
           <th>Ventilator Bed</th>
           <th>Oxygen Bed</th>
           <th>Normal Bed</th>
       </tr>
-      <form>
             <tr>
-                <td><button  name="b1" onclick="updateVal(this.value)">{{row[1]}}</button></td>
-                <td><button name="b2" onclick="updateVal()"> {{row[2]}}</button></td>
-                <td><button name="b3" onclick="updateVal()">{{row[3]}}</button></td>
+                <td><button onclick="updateVal()">{{value[0][1]}}</button></td>
+                <td><button name="b2" onclick="updateVal()"> {{value[0][2]}}</button></td>
+                <td><button name="b3" onclick="updateVal()">{{value[0][3]}}</button></td>
             </tr>
-          <div id="btn">HIII </div>
-          </form>
-        {% endfor %}
+</thead>
+
   </table>
+    </div>
+<br><br>
+  <div id="btn"> </div>
 </body>
 </html>
