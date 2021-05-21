@@ -21,31 +21,45 @@
     .row{
     text-align:center;
     }
+    .block{
+    font-size:25px;
+    width: 75%;
+    background-color:#00CED1;
+    opacity:0.7;
+    color:black;
+    border-radius: 4px;
+    }
+    .block:hover {opacity: 1}
 
 
     </style>
 </head>
 
 <body>
-<div class="jumbotron text-center" style="background-color: #6666FF;font-family:georgia">
-    <h1 style="color:white">COVID BEDS HELP DESK</h1>
+<div class="jumbotron " style="background-color: #00CED1;font-family:georgia">
+    <h1 style="padding:15px;">Covid Beds</h1>
 </div>
 <marquee behavior="scroll" direction="left" style="text-align:center;font-size:30px;background:yellow;height:50px;margin-top:0px;color:red">Central Helpline Number for corona-virus: - +91-11-23978046</marquee>
-<div class="row">
+
+
+<div class="container">
+  <div class="row">
     <div class="col-sm-4">
-        <a href="/hospital_login" ><button style="transition: width 2s, height 4s;" class="btn btn-primary">Login as Health department</button></a><br>
-        <a href="/signup">Sign Up</a><br>
-    <form action="/view" method="POST">
-        <button class="btn btn-primary">Login as Common Man</button>
-        </form>
-        </div>
-    <div class="col-sm-8">
-        <div class="col-sm-4">
-            <img src="static/covid_img.jpg" class="img-rounded" alt="COVID-19" width="300" height="300"></div>
-            <p style="font-family:georgia;font-size:30px;color:#6666FF">Covid Help Desk helps you to find out how many vacant beds are available in different hospitals across your state.
-            It will also allow the hospitals to update the count of available beds. Don't panic, Stay informed.
-            </p>
+
     </div>
+    <div class="col-sm-4">
+<h3></h3>
+              <a href="/hospital_login" ><button style="transition: width 2s, height 4s;" class="block" >Login as Health department</button></a><br><br><br>
+        <a href="/signup"><button class="block"> Sign Up</button></a><br><br><br>
+
+    <a href='/view'>    <button class="block">Login as Common Man</button></a>
     </div>
+    <div class="col-sm-4">
+    </div>
+  </div>
+</div>
+
+
+
 </body>
 </html>

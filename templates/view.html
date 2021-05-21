@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 <title>SignUp Page</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript">
@@ -69,19 +67,17 @@ document.getElementById("citySelect").selectedIndex = 0;
 </script>
     <style>
         label{
-        font-size:21px;
+        font-size:23px;
         color:black;
         }
     </style>
 </head>
-<div class="jumbotron" style="background-color: #00CED1;">
-<h1 style="font-family:georgia">Sign Up Page</h1>
-    <h4 style="color:red">*Note: This is applicable only for hospitals</h4>
+<div class="jumbotron" style="background-color: #00CED1">
+<h1 >Select and view</h1>
     </div>
 <body onload="resetSelection()">
 <div class="container">
-<form action="/register" method="POST" class="form-group">
-<label>Hospital Name:</label><i class="fas fa-hospital"></i><input type="text" class="form-control" placeholder="Enter hospital name" name="hos_name"><br>
+<form action="/view1" method="POST" class="form-group" >
 <label>State:</label>
 <select id="countrySelect" size="1" onchange="makeSubmenu(this.value)" name="state">
 <option value="" disabled selected>Choose State</option>
@@ -124,14 +120,13 @@ document.getElementById("citySelect").selectedIndex = 0;
                         <option value="Lakshadweep">Lakshadweep</option>
                         <option value="Puducherry">Pondicherry</option>
 </select><br><br>
-   <label> District:</label>
-<select id="citySelect" size="1" name="dist">
+    <label>District:</label>
+<select id="citySelect" size="1" name="city" name="city">
 <option value="" disabled selected>Choose City</option>
 <option></option>
 </select><br><br>
-<label>Password:</label><input type="password" class="form-control" placeholder="Enter password" name="spass">   <br> <br>
- <label>   Phone Number:</label><input type="number" class="form-control" placeholder="Enter hospital phone number" name="sphno"><br><br>
-    <button class="btn btn-primary" type="submit" style="color:black;background:#00CED1">Sign Up</button>
+
+    <button class="btn btn-primary" style="background-color: #00CED1" type="submit">View</button>
 </form>
 </div>
 </body>

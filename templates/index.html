@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Covid Help Desk</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+  a:hover{
+  color:#000;
+  }
+  a:link{
+  color:#fff;
+  }
+  div{
+    margin-bottom: 0px !important;
+    }
+    /* Remove the navbar's default margin-bottom and rounded borders */
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px}
+
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;}
+    }
+    .bg-cover{
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:auto;
+    height:100%;
+
+    }
+  </style>
+</head>
+<body>
+<div class="jumbotron text-center" style="background-color: #00CED1;font-family:georgia">
+    <h1 >COVID HELP DESK</h1>
+  <h4>Stay healthy.Stay informed.</h4>
+</div>
+<nav class="navbar navbar-inverse" style="background:#00CED1">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar" >
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid text-center" >
+  <div class="row content">
+    <div class="col-sm-2 sidenav" style="background-color:#00CED1;color:#000">
+
+      <ul type="disc" style="font-family:georgia;font-size:20px;color:#000">
+     <li> <p><a style="color:#000" href="/first">Covid Beds</a></p></li>
+      <li><p><a style="color:#000" href="/bargraph">Demand-Supply Gap Analysis</a></p></li>
+      <li><p><a style="color:#000" href="/covidhome">Covid Home management</a></p></li>
+        </ul>
+    </div>
+    <div class="col-sm-10 bg-cover" >
+      <h1></h1>
+      <p style="font-family:georgia;font-size:28px;color:#000">Of late, there has been growing anxiety on lack of beds in hospitals apart from that caused by covid itself. Taking this as the base, we have come up with a possible solution to tackle this situation through a web application called “ The Covid Help Desk.”
+        Covid Help Desk is a dynamic web application which acts as an interface between persons in need of beds and hospitals. CHD provides the list of hospitals and the availability of beds in them. It allows the hospital department to update the changes in the number of beds time to time.
+      We can also view the demand-supply gap state-wise. Aditionally, it also provides a list of measures & pratices for COVID home management.
+          </div>
+  </div>
+</div>
+</body>
+</html>
