@@ -49,7 +49,6 @@ def view1():
         cur.execute('select state from st_req')
         db.commit()
         rest=cur.fetchall()
-        print(rest)
         flag=0
         for x in rest:
             if state1 in x:
@@ -154,14 +153,12 @@ def req():
         details=request.form
         r=details['r']
         state1 = request.cookies.get('state')
-        print(state1)
         cur=db.cursor()
         cur.execute('select req from st_req where state  like %s',[state1])
         db.commit()
         res=cur.fetchall()
         cur.execute("update st_req set req =%s where state = %s ;",(str(int(r)+int(res[0][0])),state1))
         db.commit()
-        print(cur.fetchall())
     return render_template('redirect.html')
 
 
@@ -188,11 +185,7 @@ def hello_world():
         demand.append(int(res2[i][0]))
     for i in range(len(res1)):
         supply.append(res1[i][0])
-    print("states",st)
-    print("Demand",demand)
-    print("supply",supply)
     X_axis = np.arange(len(st))
-
     plt.bar(X_axis - 0.2, demand, 0.4, label='Demand')
     plt.bar(X_axis + 0.2, supply, 0.4, label='Supply')
 
