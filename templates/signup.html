@@ -66,6 +66,18 @@ function resetSelection() {
 document.getElementById("countrySelect").selectedIndex = 0;
 document.getElementById("citySelect").selectedIndex = 0;
 }
+        function alertpass(pass){
+        if(pass.length>10){
+        window.alert("Enter a password with less than 10 characters");
+        }
+        }
+        function alertphn(phn){
+        var fr = new RegExp("/^\d+$/");
+        var c=phn.match(fr);
+        if(phn.length>10 && !c){
+            alert("Enter valid phone number!");
+        }
+        }
 </script>
     <style>
         label{
@@ -129,9 +141,9 @@ document.getElementById("citySelect").selectedIndex = 0;
 <option value="" disabled selected>Choose City</option>
 <option></option>
 </select><br><br>
-<label>Password:</label><input type="password" class="form-control" placeholder="Enter password" name="spass">   <br> <br>
- <label>   Phone Number:</label><input type="number" class="form-control" placeholder="Enter hospital phone number" name="sphno"><br><br>
-    <button class="btn btn-primary" type="submit" style="color:black;background:#00CED1">Sign Up</button>
+<label>Password:</label><input type="password" class="form-control" placeholder="Enter password" name="spass"  onchange="alertpass(this.value)">   <br> <br>
+ <label>   Phone Number:</label><input type="number" class="form-control" placeholder="Enter hospital phone number" name="sphno" onchange="alertphn(this.value)"><br><br>
+    <button class="btn btn-primary" type="submit" style="color:black;background:#00CED1" >Sign Up</button>
 </form>
 </div>
 </body>

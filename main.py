@@ -81,6 +81,16 @@ def loginhosp():
         password = details['pass']
         #print(phoneno, password)
         cur = db.cursor()
+        cur.execute("select phone from hosp_lst")
+        db.commit()
+        result=cur.fetchall()
+        print(result)
+        flag=0
+        for x in result:
+            if phoneno in x:
+                flag=1
+        if flag==0:
+            return "Your phone number is not registered! Go to Signup for registration.<br><a href='/signup'> <button>SignUp</button></a>"
         cur.execute('select password from hosp_lst where phone LIKE %s', [phoneno])
         db.commit()
         myresult = cur.fetchall()
@@ -115,6 +125,12 @@ def register():
         password = details['spass']
         phoneNo = details['sphno']
         cur = db.cursor()
+        cur.execute("select phone from hosp_lst")
+        db.commit()
+        result = cur.fetchall()
+        for x in result:
+            if phoneNo in x:
+                return "This number is already registered.!"
         try:
             cur.execute("INSERT INTO hosp_lst VALUES (%s, %s, %s ,%s,%s);",
                         (hospName, stateName, districtName, phoneNo, password))
@@ -165,17 +181,17 @@ def req():
 
 @app.route('/bargraph')
 def hello_world():
-    demand=[]
-    st=[]
-
-    supply=[]
-
-    cur=db.cursor()
-    cur.execute('select sum(H2.obed)+sum(H2.nbed)+sum(H2.vbed) as "total" ,H1.state from hosp_bed H2,hosp_lst H1,st_req H3 where H1.phone=H2.phone and H1.state=H3.state group by H1.state order by H1.state;')
+    demand = []
+    st = []
+    supply = []
+    cur = db.cursor()
+    cur.execute(
+        'select sum(H2.obed)+sum(H2.nbed)+sum(H2.vbed) as "total" ,H1.state from hosp_bed H2,hosp_lst H1,st_req H3 where H1.phone=H2.phone and H1.state=H3.state group by H1.state order by H1.state;')
     db.commit()
-    res1=cur.fetchall()
+    res1 = cur.fetchall()
     print(res1)
-    cur.execute('select distinct H2.req,H2.state from st_req H2,hosp_lst H1 where H1.state=H2.state order by H1.state;')
+    cur.execute(
+        'select distinct H2.req,H2.state from st_req H2,hosp_lst H1 where H1.state=H2.state order by H1.state;')
     db.commit()
     res2 = cur.fetchall()
     print(res2)
@@ -199,8 +215,9 @@ def hello_world():
     data = io.BytesIO()
     im.save(data, "JPEG")
     encoded_img_data = base64.b64encode(data.getvalue())
-
     return render_template("bar.html", img_data=encoded_img_data.decode('utf-8'))
+
+
 
 @app.route("/covidhome")
 def covidhome():
@@ -217,6 +234,10 @@ def foods():
 @app.route("/dds")
 def dds():
     return render_template("dosdonts.html")
+
+@app.errorhandler(500)
+def internal_error(error):
+    return render_template('500.html'),500
 
 
 
