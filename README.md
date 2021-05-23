@@ -13,6 +13,7 @@ Additionally, it also provides a list of measures and practices for Covid Home M
  Pycharm IDLE, Flask framework, Python programming language, HTML,CSS,Bootstrap for front-end display, Javascript for front-end validation. MySQL database for all database related operations.
  Matplotlib for plotting the demand-supply graph.
  # Process Flow Diagram
+![Pflow](https://user-images.githubusercontent.com/59463660/119257068-4f747500-bbe1-11eb-866b-8f7ed2060781.png)
 
 
  # Data Flow Diagram
